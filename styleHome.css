@@ -1,0 +1,243 @@
+/* Make the webpage background black */
+html {
+  background-color: black;
+}
+/* Removes any default link styling */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/*All body text uses the font "Outfit" and is white*/
+body {
+  font-family: "Outfit", sans-serif;
+  color: white;
+}
+/* Header styling. Sticky header that sticks as you scroll down.
+-30px to margin-top because there is a weird default gap 
+at the top of the page that I want to get rid of */
+header {
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  margin-top: -30px;
+}
+/* I made my name/h1 centered */
+header h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 36px;
+}
+/*Positioning the "about" link in the navigation kept on messing up the alignment
+of my name so I set it to position:absolute and manually positioned it.*/
+header h4 {
+  position: absolute;
+  top: 17px;
+  right: 15px;
+  transition: color;
+}
+
+/* "about" will change from white to grey on hover */
+h4 a:hover {
+  color: #5f5f5f;
+}
+
+/* Header h1 and h4 will shrink when the page is minimized 
+so that the text is not crowded at smaller screen dimensions. */
+@media screen and (max-width: 800px) {
+  header h1 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 450px) {
+  header h1 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 10px;
+  }
+  .welcome {
+    font-size: 50px;
+  }
+  .qualifier {
+    font-size: 40px;
+  }
+}
+
+/*I made the width 90% to account for the text growing on hover, 
+but it made it not centered anymore. 
+So, I set the margin 0 auto to center the "welcome." text.
+Unfortunately, you cannot transform inline elements like span, and
+at this level I don't know how to make it only grow when hovering over
+the word only.*/
+.welcome {
+  transition: transform 0.5s ease-in-out;
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* "welcome." will grow on hover */
+.welcome:hover {
+  transform: scale(1.05);
+}
+
+/* I used a linear-gradient animation on "i am emma" */
+.Emma {
+  background: linear-gradient(
+    270deg,
+    #4e0f8e,
+    #1b36bd,
+    #4dd0c4,
+    #d7e333,
+    #d11d18
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: nameGradient 8s ease-in-out infinite alternate;
+  animation: nameGradient 8s ease-in-out infinite alternate;
+}
+
+/* This is the text greetings below the header.
+I added spacing to margin-top and margin-bottom to make the section longer.  */
+.intro {
+  font-weight: 500;
+  font-size: 60px;
+  margin-top: 200px;
+  margin-bottom: 250px;
+  text-align: center;
+}
+
+/*I wanted to add more height to my homepage so I added margin-top: 115px
+to space out the qualifiers (an aspiring creator, etc.)*/
+.qualifier div {
+  margin-top: 115px;
+}
+
+/* Qualifier text will transition colours on hover */
+.qualifier span {
+  transition: color 0.5s;
+}
+/*I wanted to add some CSS interactivity with CSS on hover colour transitions*/
+.creator:hover {
+  color: #87c563;
+}
+.artist:hover {
+  color: #29b1aa;
+}
+.imd:hover {
+  color: #3954d6;
+}
+
+/* I used a linear-gradient animation for this rectangular section divider */
+.divider {
+  text-align: center;
+  font-weight: 700;
+  font-size: 48px;
+  padding: 20px;
+  background: linear-gradient(
+    270deg,
+    #4e0f8e,
+    #1b36bd,
+    #4dd0c4,
+    #d7e333,
+    #d11d18
+  );
+  background-size: 300%;
+  animation: nameGradient 10s ease-in-out infinite alternate;
+}
+
+/* This creates a flowing linear-gradient animation */
+@keyframes nameGradient {
+  0% {
+    background-position: 0px 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0px 50%;
+  }
+}
+
+/*I used float:left and width:33.33% to create 3 columns for 
+Characters, Traditional, and Photography. The transition is for 
+the div to grow on hover. */
+.row > div {
+  float: left;
+  width: 33.33%;
+  height: 500px;
+  position: relative;
+  transition: transform 1s;
+}
+/* The overlay div is transparent until you hover over it.  */
+.overlay {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: 1s ease;
+  background-color: rgb(59, 59, 59);
+}
+
+/* Increases the opacity of overlay to make text more legible on hover */
+.overlay:hover {
+  opacity: 0.5;
+}
+
+/* img is set to object-fit: cover so the image fits the div while constraining dimensions. */
+.row img,
+.row2 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/* On hover over the row's divs, the div will grow slightly/ */
+.row > div:hover,
+.row2 > div:hover {
+  transform: scale(1.01);
+}
+
+/* I centered the imageText using these stylings*/
+.imageText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  text-align: center;
+}
+
+/* The second row has two images (Album and Earth's Own Rebrand) so each 
+div width is 50% to take up 50% of the row. */
+.row2 > div {
+  float: left;
+  width: 50%;
+  height: 500px;
+  position: relative;
+  transition: transform 1s;
+}
+
+/*I reduced the images to a single column when the window is smaller.*/
+@media screen and (max-width: 800px) {
+  .row2 > div {
+    width: 100%;
+  }
+  .row > div {
+    width: 100%;
+  }
+}

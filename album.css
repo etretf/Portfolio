@@ -1,0 +1,40 @@
+/* "Envision" h1 styling */
+section h1 {
+  margin-top: 200px;
+  font-size: 60px;
+  text-align: center;
+}
+/* p styling */
+p {
+  font-size: 24px;
+  width: 60%;
+  text-align: center;
+  line-height: 2;
+  margin: 0 auto;
+  margin-bottom: 180px;
+}
+/* Make image of album centered with display:block and margin:0 auto */
+img {
+  display: block;
+  margin: 0 auto;
+  width: 85%;
+  transition: transform 0.5s ease-in;
+}
+/* Image will grow slightly on hover */
+img:hover {
+  transform: scale(1.01);
+}
+/* Added more space to bottom of album cover */
+.envision {
+  margin-bottom: 200px;
+}
+
+/* The text will shrink when the screen is smaller */
+@media screen and (max-width: 600px) {
+  section h1 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 18px;
+  }
+}

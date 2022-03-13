@@ -1,0 +1,76 @@
+/* h1 styling */
+section h1 {
+  margin-top: 200px;
+  font-size: 60px;
+  text-align: center;
+}
+
+/*Honestly, I chose a flex layout because it was the only one I could figure out.
+Also, it is easier to adjust flex:% and align elements. I chose flex-wrap so
+elements will wrap onto the next row. */
+.charGallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px;
+}
+/* I set .char to 33% flex and max-width to create 3 columns, and box-sizing was
+set to border-box so the div is constrained to 33% and will not overflow. */
+.char {
+  flex: 33%;
+  max-width: 33%;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: transform 0.5s ease;
+}
+
+/* img styling */
+.char img {
+  vertical-align: middle;
+  width: 100%;
+  object-fit: cover;
+}
+/* img will grow slightly on hover */
+.char:hover {
+  transform: scale(1.01);
+}
+
+/* h3 styling */
+h3 {
+  text-align: center;
+}
+/* p styling */
+p {
+  font-size: 24px;
+  width: 60%;
+  text-align: center;
+  line-height: 2;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+/* .char divs will collapse to 2 columns at max-width :800px
+and 1 column at max-width:600px. */
+@media screen and (max-width: 800px) {
+  .char {
+    flex: 50%;
+    max-width: 50%;
+  }
+  .charGallery {
+    margin: 40px;
+  }
+}
+/* Character drawings have narrower margins at smaller screens sizes
+so more space is given to the images */
+@media screen and (max-width: 600px) {
+  .char {
+    flex: 100%;
+    max-width: 100%;
+  }
+  section h1 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,52 @@
+/* I added margin-top:50px for more space */
+section h1 {
+  margin-top: 50px;
+  font-size: 60px;
+  text-align: center;
+}
+
+/* I set display:block and margin:0 auto to center the image. */
+.emoji {
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+  height: 250px;
+}
+
+/* On hover, the emoji will change from smiling to not smiling. */
+.emoji:hover {
+  content: url("emVibe2.png");
+}
+
+/* Make h3 centered*/
+.about h3 {
+  text-align: center;
+}
+/* styling the p elements */
+.about p {
+  font-size: 24px;
+  width: 60%;
+  text-align: center;
+  line-height: 2;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+/* Email will be underlined on hover */
+.email:hover {
+  text-decoration: underline;
+}
+/* The text is smaller when the screen is smaller */
+@media screen and (max-width: 450px) {
+  .about p {
+    font-size: 18px;
+  }
+  .email {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .about h1 {
+    font-size: 48px;
+  }
+}

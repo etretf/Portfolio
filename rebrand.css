@@ -1,0 +1,106 @@
+/* h1 styling */
+section h1 {
+  margin-top: 200px;
+  font-size: 60px;
+  text-align: center;
+}
+
+/*
+Text-align only aligned the "Storyboards" h2,
+so I set margin : 0 auto to center all h2 elements
+*/
+h2 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* h3 styling */
+h3 {
+  text-align: center;
+}
+
+/* p styling */
+p {
+  font-size: 24px;
+  width: 60%;
+  text-align: center;
+  line-height: 2;
+  margin: 0 auto;
+}
+
+/* I chose flex and flex-wrap for easier layout. */
+.charEO {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 160px 300px 10px 300px;
+}
+
+/* For the image to take up a whole row, flex and max-width:100% */
+.charEO > div {
+  max-width: 100%;
+  flex: 100%;
+  margin: 15px;
+  transition: transform 0.5s ease;
+}
+/* img styling */
+.charEO img,
+.storyboard img {
+  vertical-align: middle;
+  width: 100%;
+  object-fit: contain;
+}
+/* div will grow on hover */
+.charEO > div:hover,
+.storyboard div:hover {
+  transform: scale(1.01);
+}
+/* Flex and flex-wrap layout for ease. */
+.storyboard {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 100px 100px 100px;
+}
+
+/* 
+50% width and flex to fit two divs in one row. 
+Border-box to constrain to 50% width. 
+
+For some unknown reason, the transform transition
+does not work if I only use transition:. I need
+to write out each individual transition element.
+*/
+.storyboard div {
+  box-sizing: border-box;
+  width: 50%;
+  flex: 50%;
+  padding: 10px;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+
+/* When the screen is made smaller, the margin is decreased so the image 
+does not become too small */
+@media screen and (max-width: 1000px) {
+  .charEO {
+    margin: 160px 10px 10px 10px;
+  }
+  /* Storyboard divs will become 1 column instead of 2 columns */
+  .storyboard div {
+    flex: 100%;
+    max-width: 100%;
+  }
+  /* Reduced margins so images do not become too small */
+  .storyboard {
+    margin: 10px 10px 100px 10px;
+  }
+}
+/* The text will shrink when the screen is smaller */
+@media screen and (max-width: 600px) {
+  section h1 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,117 @@
+/*Flex and flex-wrap for easier layout  */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px;
+}
+/* h1 styling */
+section h1 {
+  margin-top: 200px;
+  font-size: 60px;
+  text-align: center;
+}
+/* h2 styling */
+h2 {
+  font-size: 30px;
+  margin-top: -10px;
+}
+/* 
+margin-top:-10px somehow offsets a weird
+spacing issue at the top
+*/
+
+/* h3 styling */
+h3 {
+  font-size: 24px;
+}
+
+/* .piece and .desc are 30% and 20% flex and max-width to make 50% total of the flexbox.
+Two pieces and two descriptions fit in each row.
+ */
+.piece {
+  flex: 30%;
+  max-width: 30%;
+}
+
+.desc {
+  flex: 20%;
+  max-width: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.piece img {
+  vertical-align: middle;
+  width: 100%;
+  object-fit: contain;
+}
+/* I wanted only a single piece for the bottom row so .piece2 
+is 60% flex/max-width and .desc2 is 40%. */
+.piece2 {
+  flex: 60%;
+  max-width: 60%;
+}
+
+.desc2 {
+  flex: 40%;
+  max-width: 40%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.piece2 img {
+  vertical-align: middle;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* img will grow slightly in hover */
+img {
+  transition: transform 0.5s ease;
+}
+img:hover {
+  transform: scale(1.01);
+}
+
+/* When screen size is reduced, all divs/imgs fit into a single column. */
+@media screen and (max-width: 1200px) {
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+/* The text will shrink when the screen is made smaller */
+@media screen and (max-width: 1000px) {
+  .piece,
+  .piece2 {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .desc,
+  .desc2 {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .container {
+    margin: 50px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 600px) {
+  section h1 {
+    font-size: 48px;
+  }
+}

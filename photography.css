@@ -1,0 +1,74 @@
+/* h1 styling */
+section h1 {
+  margin-top: 200px;
+  font-size: 60px;
+  text-align: center;
+}
+
+/* I chose flex and flex-wrap for easier layout. I looked at W3schools CSS image gallery
+ layout resources for help (https://www.w3schools.com/howto/howto_css_image_grid_responsive.asp) */
+.photoGallery {
+  margin: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* To create 4 columns, I set width and max-width to 25% and set as border-box
+to constrain the div and padding to 25% */
+.column {
+  width: 25%;
+  max-width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* img styling */
+.column img {
+  margin-top: 15px;
+  vertical-align: middle;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+/* img grows on hover */
+.column img:hover {
+  transform: scale(1.01);
+}
+
+/* h3 styling */
+h3 {
+  text-align: center;
+}
+/* p styling */
+p {
+  font-size: 24px;
+  width: 60%;
+  text-align: center;
+  line-height: 2;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+/* photo columns will become 2 columns at max-width:800px and 1 column at max-width:600px */
+@media screen and (max-width: 815px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+  .photoGallery {
+    margin: 50px;
+  }
+}
+/* The text will shrink and the margins will be reduced when the screen is smaller */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+  section h1 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
